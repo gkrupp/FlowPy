@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<title>Graph</title>
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/main.css">
+	
+	<script src="js/go.js"></script>
+	<script>
+	(function(go){go.licenseKey="54f040e1b71c28c702d90776423d6bf919a52863cc851ba00a0717f7ea0c6c1d709def6a41d5d897dafd1aa81829c4db8ec73a20c2495032b231d3da44e28fffe7357ae5110c46daa21136c5ccaa2ca1ae2870e0d2b676a2d26788edebaa"})(go);
+	</script>
+	<script src="js/socket.io.js"></script>
+	<script src="js/class/DiagramElementBase.js"></script>
+	<script src="js/class/ArgumentElement.js"></script>
+	<script src="js/class/LinkElement.js"></script>
+	<script src="js/class/NodeElement.js"></script>
+	<script src="js/class/DiagramElement.js"></script>
+	<script src="js/class/Connection.js"></script>
+	<script src="js/main.js" defer></script>
+
+	</head>
+	<body fit selection="none">
+		
+		<header id="header" fixed l="row center" z="1">
+			<div class="aside-left" l="row center">
+				<input type="text" id="model_input_name" class="header-input" placeholder="New model">
+			</div>
+			<div flex l="row center">
+				<button id="model_btn_save" class="iconbtn" title="Save"><i icon>save_alt</i></button>
+				<button id="model_btn_load" class="iconbtn" title="Load">
+					<i icon>open_in_browser</i>
+					<input type="file" id="model_input_load" hidden/>
+				</button>
+				<button id="model_btn_run" class="iconbtn" title="Run"><i icon>play_arrow</i></button>
+				<div flex></div>
+				<button id="model_btn_console" class="iconbtn" title="Console"><i icon>code</i></button>
+			</div>
+		</header>
+		
+		<section id="viewport" l="row">
+			<aside id="aside" class="aside-left">
+				<div id="node_list"></div>
+			</aside>
+			<main id="main" flex>
+				<div id="diagram" fit></div>
+				<ul id="argtable" z="1"></ul>
+			</main>
+			<section id="console" class="aside-right hidden" fixed l="column" z="1">
+				<div class="tab-header" l="row stretch">
+					<input type="radio" id="console-tab-stdout" name="console-tab" value="stdout" class="tab-option" checked />
+					<label for="console-tab-stdout" class="selected" flex style="border-color:#2196f3">stdout</label>
+					<input type="radio" id="console-tab-stderr" name="console-tab" value="stderr" class="tab-option" />
+					<label for="console-tab-stderr" flex style="border-color:#f44336">stderr</label>
+				</div>
+				<div l="column" flex>
+					<div id="console-stdout" class="tab-content" flex selection="text"></div>
+					<div id="console-stderr" class="tab-content hidden" flex selection="text"></div>
+				</div>
+			</section>
+		</section>
+		
+	</body>
+</html>

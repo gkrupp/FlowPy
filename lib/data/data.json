@@ -1,0 +1,1948 @@
+{
+	"types": {
+		"node": {
+			"input": { "fill": "#FFE0B2" },
+			"output": { "fill": "#E1BEE7" },
+			"data": { "fill": "#BBDEFB" },
+			"config": { "fill": "#C8E6C9" },
+			"attack": { "fill": "#FFCDD2" }
+		},
+		"arg": {
+			"utils": {
+				"bound": {},
+				"preprocessing": {},
+				"epsilon": {}
+			},
+			"string": { "default":"" },
+			"bool": { "default":false }
+		}
+	},
+  "nodes": {
+		
+		"Keras": {
+		
+			"Layers": {
+				
+				"Core": {
+				
+					"Activation": {
+						"name": "Activation",
+						"package": "keras.layers.Activation",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "activation", "itype": "string", "required": true }
+						]
+					},
+					"ActivityRegularization": {
+						"name": "ActivityRegularization",
+						"package": "keras.layers.ActivityRegularization",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "l1", "itype": "float", "default": 0.0 }, 
+							{ "arg": "l2", "itype": "float", "default": 0.0 }
+						]
+					},
+					"Dense": {
+						"name": "Dense",
+						"package": "keras.layers.Dense",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "units", "itype": "int", "required": true }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"Dropout": {
+						"name": "Dropout",
+						"package": "keras.layers.Dropout",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "rate", "itype": "float01", "required": true }, 
+							{ "arg": "noise_shape", "itype": "shape", "default": null }, 
+							{ "arg": "seed", "itype": "int", "default": null }
+						]
+					},
+					"Flatten": {
+						"name": "Flatten",
+						"package": "keras.layers.Flatten",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": null }
+						]
+					},
+					"Input": {
+						"name": "Input",
+						"package": "keras.layers.Input",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"copy": false,
+						"conns": 0,
+						"args": [
+							{ "arg": "shape", "itype": "shape", "required": true }, 
+							{ "arg": "batch_shape", "itype": "shape" }, 
+							{ "arg": "name", "itype": "string", "default": null }, 
+							{ "arg": "dtype", "itype": "nosupport", "default": null }, 
+							{ "arg": "sparse", "itype": "bool", "default": false }, 
+							{ "arg": "tensor", "itype": "nosupport", "default": null }
+						]
+					},
+					"Masking": {
+						"name": "Masking",
+						"package": "keras.layers.Masking",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "mask_value", "itype": "float", "default": 0.0 }
+						]
+					},
+					"Permute": {
+						"name": "Permute",
+						"package": "keras.layers.Permute",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "dims", "itype": "shape", "required": true }
+						]
+					},
+					"RepeatVector": {
+						"name": "RepeatVector",
+						"package": "keras.layers.RepeatVector",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "n", "itype": "int0+", "required": true }
+						]
+					},
+					"Reshape": {
+						"name": "Reshape",
+						"package": "keras.layers.Reshape",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "target_shape", "itype": "shape", "required": true }
+						]
+					},
+					"SpatialDropout1D": {
+						"name": "SpatialDropout1D",
+						"package": "keras.layers.SpatialDropout1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "rate", "itype": "float01", "required": true }
+						]
+					},
+					"SpatialDropout2D": {
+						"name": "SpatialDropout2D",
+						"package": "keras.layers.SpatialDropout2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "rate", "itype": "float01", "required": true },
+							{ "arg": "data_format", "itype": "string", "default": null }
+						]
+					},
+					"SpatialDropout3D": {
+						"name": "SpatialDropout3D",
+						"package": "keras.layers.SpatialDropout3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "rate", "itype": "float01", "required": true },
+							{ "arg": "data_format", "itype": "string", "default": null }
+						]
+					}
+					
+				},
+				"Convolution": {
+				
+					"Conv1D": {
+						"name": "Conv1D",
+						"package": "keras.layers.Conv1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "int", "default": 1 }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "int", "default": 1 }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"Conv2D": {
+						"name": "Conv2D",
+						"package": "keras.layers.Conv2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"Conv3D": {
+						"name": "Conv3D",
+						"package": "keras.layers.Conv3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true },
+							{ "arg": "strides", "itype": "shape", "default": "(1,1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "shape", "default": "(1,1,1)" }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"Conv2DTranspose": {
+						"name": "Conv2DTranspose",
+						"package": "keras.layers.Conv2DTranspose",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "output_padding", "itype": "shape", "default": null }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"Conv3DTranspose": {
+						"name": "Conv3DTranspose",
+						"package": "keras.layers.Conv3DTranspose",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true },
+							{ "arg": "strides", "itype": "shape", "default": "(1,1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "output_padding", "itype": "shape", "default": null }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" },
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"DepthwiseConv2D": {
+						"name": "DepthwiseConv2D",
+						"package": "keras.layers.DepthwiseConv2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"conns": -1,
+						"args": [
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "depth_multiplier", "itype": "int", "default": 1 }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "depthwise_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "depthwise_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "depthwise_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"SeparableConv1D": {
+						"name": "SeparableConv1D",
+						"package": "keras.layers.SeparableConv1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "int", "default": 1 }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "int", "default": 1 }, 
+							{ "arg": "depth_multiplier", "itype": "int", "default": 1 }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "depthwise_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "pointwise_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "depthwise_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "pointwise_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "depthwise_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "pointwise_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"SeparableConv2D": {
+						"name": "SeparableConv2D",
+						"package": "keras.layers.SeparableConv2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "depth_multiplier", "itype": "float", "default": 1 }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "depthwise_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "pointwise_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "depthwise_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "pointwise_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "depthwise_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "pointwise_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"Cropping1D": {
+						"name": "Cropping1D",
+						"package": "keras.layers.Cropping1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "cropping", "itype": "shape", "default": "(1,1)" }
+						]
+					},
+					"Cropping2D": {
+						"name": "Cropping2D",
+						"package": "keras.layers.Cropping2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "cropping", "itype": "shape", "default": "((0,0),(0,0))" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"Cropping3D": {
+						"name": "Cropping3D",
+						"package": "keras.layers.Cropping3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "cropping", "itype": "shape", "default": "((1,1),(1,1),(1,1))" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"UpSampling1D": {
+						"name": "UpSampling1D",
+						"package": "keras.layers.UpSampling1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "size", "itype": "int", "default": 2 }
+						]
+					},
+					"UpSampling2D": {
+						"name": "UpSampling2D",
+						"package": "keras.layers.UpSampling2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "size", "itype": "shape", "default": "(2,2)" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" },
+							{ "arg": "interpolation", "itype": "string", "default": "nearest" }
+						]
+					},
+					"UpSampling3D": {
+						"name": "UpSampling3D",
+						"package": "keras.layers.UpSampling3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "size", "itype": "shape", "default": "(2,2,2)" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"ZeroPadding1D": {
+						"name": "ZeroPadding1D",
+						"package": "keras.layers.ZeroPadding1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "padding", "itype": "int", "default": 1 }
+						]
+					},
+					"ZeroPadding2D": {
+						"name": "ZeroPadding2D",
+						"package": "keras.layers.ZeroPadding2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "padding", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"ZeroPadding3D": {
+						"name": "ZeroPadding3D",
+						"package": "keras.layers.ZeroPadding3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "padding", "itype": "shape", "default": "(1,1,1)" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					}
+				
+				},
+				"Pooling": {
+				
+					"AveragePooling1D": {
+						"name": "AveragePooling1D",
+						"package": "keras.layers.AveragePooling1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "pool_size", "itype": "int", "default": 2 }, 
+							{ "arg": "strides", "itype": "int", "default": null }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"AveragePooling2D": {
+						"name": "AveragePooling2D",
+						"package": "keras.layers.AveragePooling2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "pool_size", "itype": "shape", "default": "(2,2)" }, 
+							{ "arg": "strides", "itype": ["tuple","int"], "default": null }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"AveragePooling3D": {
+						"name": "AveragePooling3D",
+						"package": "keras.layers.AveragePooling3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "pool_size", "itype": "shape", "default": "(2,2,2)" }, 
+							{ "arg": "strides", "itype": ["tuple","int"], "default": null }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"MaxPooling1D": {
+						"name": "MaxPooling1D",
+						"package": "keras.layers.MaxPooling1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "pool_size", "itype": "int", "default": 2 }, 
+							{ "arg": "strides", "itype": "int", "default": null }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"MaxPooling2D": {
+						"name": "MaxPooling2D",
+						"package": "keras.layers.MaxPooling2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "pool_size", "itype": "shape", "default": "(2,2)" }, 
+							{ "arg": "strides", "itype": ["tuple","int"], "default": null }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"MaxPooling3D": {
+						"name": "MaxPooling3D",
+						"package": "keras.layers.MaxPooling3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "pool_size", "itype": "shape", "default": "(2,2,2)" }, 
+							{ "arg": "strides", "itype": ["tuple","int"], "default": null }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"GlobalAveragePooling1D": {
+						"name": "GlobalAveragePooling1D",
+						"package": "keras.layers.GlobalAveragePooling1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"GlobalAveragePooling2D": {
+						"name": "GlobalAveragePooling2D",
+						"package": "keras.layers.GlobalAveragePooling2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"GlobalAveragePooling3D": {
+						"name": "GlobalAveragePooling3D",
+						"package": "keras.layers.GlobalAveragePooling3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"GlobalMaxPooling1D": {
+						"name": "GlobalMaxPooling1D",
+						"package": "keras.layers.GlobalMaxPooling1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"GlobalMaxPooling2D": {
+						"name": "GlobalMaxPooling2D",
+						"package": "keras.layers.GlobalMaxPooling2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					},
+					"GlobalMaxPooling3D": {
+						"name": "GlobalMaxPooling3D",
+						"package": "keras.layers.GlobalMaxPooling3D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }
+						]
+					}
+				
+				},
+				"Locally-connected": {
+				
+					"LocallyConnected1D": {
+						"name": "LocallyConnected1D",
+						"package": "keras.layers.LocallyConnected1D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": "int", "required": true }, 
+							{ "arg": "strides", "itype": "int", "default": 1 }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					},
+					"LocallyConnected2D": {
+						"name": "LocallyConnected2D",
+						"package": "keras.layers.LocallyConnected2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": ["shape", "int"], "required": true }, 
+							{ "arg": "strides", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "activation", "itype": "string", "default": "linear" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }
+						]
+					}
+				
+				},
+				"Recurrent ": {
+				
+					"GRU": {
+						"name": "GRU",
+						"package": "keras.layers.GRU",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "units", "itype": "int", "required": true }, 
+							{ "arg": "activation", "itype": "string", "default": "tanh" }, 
+							{ "arg": "recurrent_activation", "itype": "string", "default": "hard_sigmoid" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "recurrent_initializer", "itype": "string", "default": "orthogonal" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "recurrent_dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "implementation", "itype": "float", "default": 1 }, 
+							{ "arg": "return_sequences", "itype": "bool", "default": false }, 
+							{ "arg": "return_state", "itype": "bool", "default": false }, 
+							{ "arg": "go_backwards", "itype": "bool", "default": false }, 
+							{ "arg": "stateful", "itype": "bool", "default": false }, 
+							{ "arg": "unroll", "itype": "bool", "default": false }, 
+							{ "arg": "reset_after", "itype": "bool", "default": false }
+						]
+					},
+					"LSTM": {
+						"name": "LSTM",
+						"package": "keras.layers.LSTM",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "units", "itype": "int", "required": true }, 
+							{ "arg": "activation", "itype": "string", "default": "tanh" }, 
+							{ "arg": "recurrent_activation", "itype": "string", "default": "hard_sigmoid" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "recurrent_initializer", "itype": "string", "default": "orthogonal" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "unit_forget_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "recurrent_dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "implementation", "itype": "float", "default": 1 }, 
+							{ "arg": "return_sequences", "itype": "bool", "default": false }, 
+							{ "arg": "return_state", "itype": "bool", "default": false }, 
+							{ "arg": "go_backwards", "itype": "bool", "default": false }, 
+							{ "arg": "stateful", "itype": "bool", "default": false }, 
+							{ "arg": "unroll", "itype": "bool", "default": false }
+						]
+					},
+					"SimpleRNN": {
+						"name": "SimpleRNN",
+						"package": "keras.layers.SimpleRNN",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "units", "itype": "int", "required": true }, 
+							{ "arg": "activation", "itype": "string", "default": "tanh" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "recurrent_initializer", "itype": "string", "default": "orthogonal" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "recurrent_dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "return_sequences", "itype": "bool", "default": false }, 
+							{ "arg": "return_state", "itype": "bool", "default": false }, 
+							{ "arg": "go_backwards", "itype": "bool", "default": false }, 
+							{ "arg": "stateful", "itype": "bool", "default": false }, 
+							{ "arg": "unroll", "itype": "bool", "default": false }
+						]
+					},
+					"ConvLSTM2D": {
+						"name": "ConvLSTM2D",
+						"package": "keras.layers.ConvLSTM2D",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "filters", "itype": "int", "required": true }, 
+							{ "arg": "kernel_size", "itype": "shape", "required": true }, 
+							{ "arg": "strides", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "padding", "itype": "string", "default": "valid" }, 
+							{ "arg": "data_format", "itype": "string", "default": "channels_last" }, 
+							{ "arg": "dilation_rate", "itype": "shape", "default": "(1,1)" }, 
+							{ "arg": "activation", "itype": "string", "default": "tanh" }, 
+							{ "arg": "recurrent_activation", "itype": "string", "default": "hard_sigmoid" }, 
+							{ "arg": "use_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_initializer", "itype": "string", "default": "glorot_uniform" }, 
+							{ "arg": "recurrent_initializer", "itype": "string", "default": "orthogonal" }, 
+							{ "arg": "bias_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "unit_forget_bias", "itype": "bool", "default": true }, 
+							{ "arg": "kernel_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "kernel_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "recurrent_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "bias_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "return_sequences", "itype": "bool", "default": false }, 
+							{ "arg": "go_backwards", "itype": "bool", "default": false }, 
+							{ "arg": "stateful", "itype": "bool", "default": false }, 
+							{ "arg": "dropout", "itype": "float01", "default": 0.0 }, 
+							{ "arg": "recurrent_dropout", "itype": "float01", "default": 0.0 }
+						]
+					}
+				
+				},
+				"Embedding": {
+				
+					"Embedding": {
+						"name": "Embedding",
+						"package": "keras.layers.Embedding",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "input_dim", "itype": "int+", "required": true }, 
+							{ "arg": "output_dim", "itype": "int0+", "required": true }, 
+							{ "arg": "embeddings_initializer", "itype": "string", "default": "uniform" }, 
+							{ "arg": "embeddings_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "activity_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "embeddings_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "mask_zero", "itype": "bool", "default": false }, 
+							{ "arg": "input_length", "itype": "nosupport", "default": null }
+						]
+					}
+				
+				},
+				"Merge": {
+				
+					"Add": {
+						"name": "Add",
+						"package": "kw.merge.Add",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": []
+					},
+					"Average": {
+						"name": "Average",
+						"package": "kw.merge.Average",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": []
+					},
+					"Concatenate": {
+						"name": "Concatenate",
+						"package": "kw.merge.Concatenate",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": [
+							{ "arg": "axis", "itype": "int", "default": -1 }
+						]
+					},
+					"Dot": {
+						"name": "Dot",
+						"package": "kw.merge.Dot",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": [
+							{ "arg": "axes", "itype": ["int", "shape"], "default": -1 }, 
+							{ "arg": "normalize", "itype": "bool", "default": false }
+						]
+					},
+					"Maximum": {
+						"name": "Maximum",
+						"package": "kw.merge.Maximum",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": []
+					},
+					"Minimum": {
+						"name": "Minimum",
+						"package": "kw.merge.Minimum",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": []
+					},
+					"Multiply": {
+						"name": "Multiply",
+						"package": "kw.merge.Multiply",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": []
+					},
+					"Subtract": {
+						"name": "Subtract",
+						"package": "kw.merge.Subtract",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": -1,
+						"args": []
+					}
+				
+				},
+				"Activations": {
+				
+					"LeakyReLU": {
+						"name": "LeakyReLU",
+						"package": "keras.layers.LeakyReLU",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "alpha", "itype": "float", "default": 0.3 }
+						]
+					},
+					"PReLU": {
+						"name": "PReLU",
+						"package": "keras.layers.PReLU",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "alpha_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "alpha_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "alpha_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "shared_axes", "itype": "nosupport", "default": null }
+						]
+					},
+					"ELU": {
+						"name": "ELU",
+						"package": "keras.layers.ELU",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "alpha", "itype": "float", "default": 1.0 }
+						]
+					},
+					"ThresholdedReLU": {
+						"name": "ThresholdedReLU",
+						"package": "keras.layers.ThresholdedReLU",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "theta", "itype": "float", "default": 1.0 }
+						]
+					},
+					"Softmax": {
+						"name": "Softmax",
+						"package": "keras.layers.Softmax",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "axis", "itype": "int", "default": -1 }
+						]
+					},
+					"ReLU": {
+						"name": "ReLU",
+						"package": "keras.layers.ReLU",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "max_value", "itype": "float", "default": null }, 
+							{ "arg": "negative_slope", "itype": "float", "default": 0.0 }, 
+							{ "arg": "threshold", "itype": "float", "default": 0.0 }
+						]
+					}
+				
+				},
+				"Normalization": {
+				
+					"BatchNormalization": {
+						"name": "BatchNormalization",
+						"package": "keras.layers.BatchNormalization",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "axis", "itype": "int", "default": -1 }, 
+							{ "arg": "momentum", "itype": "float", "default": 0.99 }, 
+							{ "arg": "epsilon", "itype": "float", "default": 0.001 }, 
+							{ "arg": "center", "itype": "bool", "default": true }, 
+							{ "arg": "scale", "itype": "bool", "default": true }, 
+							{ "arg": "beta_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "gamma_initializer", "itype": "string", "default": "ones" }, 
+							{ "arg": "moving_mean_initializer", "itype": "string", "default": "zeros" }, 
+							{ "arg": "moving_variance_initializer", "itype": "string", "default": "ones" }, 
+							{ "arg": "beta_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "gamma_regularizer", "itype": "nosupport", "default": null }, 
+							{ "arg": "beta_constraint", "itype": "nosupport", "default": null }, 
+							{ "arg": "gamma_constraint", "itype": "nosupport", "default": null }
+						]
+					}
+				
+				},
+				"Noise": {
+				
+					"GaussianNoise": {
+						"name": "GaussianNoise",
+						"package": "keras.layers.GaussianNoise",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "stddev", "itype": "float", "required": true }
+						]
+					},
+					"GaussianDropout": {
+						"name": "GaussianDropout",
+						"package": "keras.layers.GaussianDropout",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "rate", "itype": "float", "required": true }
+						]
+					},
+					"AlphaDropout": {
+						"name": "AlphaDropout",
+						"package": "keras.layers.AlphaDropout",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": true,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "rate", "itype": "float", "required": true }, 
+							{ "arg": "noise_shape", "itype": "nosupport", "default": null }, 
+							{ "arg": "seed", "itype": "int", "default": null }
+						]
+					}
+				
+				},
+				"Wrappers": {
+	
+					"Bidirectional": {
+						"name": "Bidirectional",
+						"package": "keras.layers.Bidirectional",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": false,
+						"copy": false,
+						"conns": 1,
+						"args": [
+							{ "arg": "merge_mode", "itype": "string", "default": "concat" }, 
+							{ "arg": "weights", "itype": "nosupport", "default": null }
+						]
+					},	
+					"TimeDistributed": {
+						"name": "TimeDistributed",
+						"package": "keras.layers.TimeDistributed",
+						"category": "types.node.Layer",
+						"itype": "Layer",
+						"otype": "Layer",
+						"apply": false,
+						"copy": false,
+						"conns": 1,
+						"args": []
+					}
+					
+				}
+			}
+			
+			
+		},
+		"Foolbox": {
+			
+			"Input": {
+				
+				"Data": {
+					"Image": {
+						"name": "[Image]",
+						"package": "adv.fileop.loader_image",
+						"category": "types.node.input",
+						"conns": 0,
+						"itype": "_",
+						"otype": ["ImageBatch"],
+						"args": [
+							{ "arg":"pattern", "itype":"string", "required":true },
+							{ "arg":"recursive", "itype":"bool", "default":true },
+							{ "arg":"color", "itype":"bool", "default":true },
+							{ "arg":"default_label", "itype":"string", "default":"0" },
+							{ "arg":"label_map", "itype":"Labelmap", "conns":1 },
+							{ "arg":"valami", "itype":"string" }
+						]
+					},
+					"Batch": {
+						"name": "[Batch]",
+						"package": "adv.fileop.Batch",
+						"category": "types.node.data",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": []
+					},
+					"Transformation": {
+						"name": "[Transformation]",
+						"package": "adv.fileop.preprocessing",
+						"category": "types.node.data",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"subtract", "itype":"float", "default":0.0 },
+							{ "arg":"divide", "itype":"float", "default":1.0 },
+							{ "arg":"multiply", "itype":"float", "default":1.0 }
+						]
+					},
+					"Rename": {
+						"name": "[Rename]",
+						"package": "adv.fileop.rename",
+						"category": "types.node.data",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"prefix", "itype":"string", "default":"" },
+							{ "arg":"suffix", "itype":"string", "default":"" }
+						]
+					}
+				},
+				
+				"Label": {
+					"LabelMap": {
+						"package": "adv.fileop.loader_labels",
+						"category": "types.node.input",
+						"conns": 0,
+						"itype": "_",
+						"otype": "Labelmap",
+						"args": [
+							{ "arg":"path", "itype":"string", "required":true }
+						]
+					}
+				},
+				
+				"Model": {
+					"KerasModel": {
+						"name": "Keras model",
+						"package": "adv.fileop.loader_keras",
+						"category": "types.node.input",
+						"itype": "_",
+						"otype": "FoolboxModel",
+						"conns": 0,
+						"args": [
+							{ "arg":"path", "itype":"string", "required":true },
+							{ "arg":"bounds", "itype":"types.arg.utils.bound", "conns":1 },
+							{ "arg":"channel_axis", "itype":"int", "default":3 },
+							{ "arg":"predicts", "itype":"string", "default":"probabilities" }
+						]
+					}
+				}
+				
+			},
+			
+			
+			"Output": {
+				"Output": {
+					"name": "[Output]",
+					"package": "adv.fileop.saver_image",
+					"category": "types.node.output",
+					"itype": ["ImageBatch"],
+					"otype": "ImageBatch",
+					"conns": -1,
+					"args": [
+						{ "arg":"path", "itype":"string", "required":true }
+					]
+				}
+			},
+			
+			
+			"Attacks": {
+				
+				"Configuration": {
+					"package": "adv.attacks.Configuration",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Configuration",
+					"conns": 0,
+					"args": [
+						{ "arg":"model", "itype":"FoolboxModel", "conns":1, "required":true },
+						{ "arg":"criterion", "itype":"Criteria", "conns":1 },
+						{ "arg":"distance", "itype":"Distance", "conns":1 }
+					]
+				},
+				
+				
+				"GradientBased": {
+					
+					"GradientAttack": {
+						"name": "Gradient attack",
+						"package": "adv.attacks.GradientAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 },
+							{ "arg":"max_epsilon", "itype":"float", "default":1 }
+						]
+					},
+					"GradientSignAttack": {
+						"name": "Gradient sign attack",
+						"package": "adv.attacks.GradientSignAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 },
+							{ "arg":"max_epsilon", "itype":"float", "default":1 }
+						]
+					},
+					"LinfinityBasicIterativeAttack": {
+						"name": "Linf basic iterative attack",
+						"package": "adv.attacks.LinfinityBasicIterativeAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"binary_search", "itype":"bool", "default":true },
+							{ "arg":"epsilon", "itype":"float", "default":0.3 },
+							{ "arg":"stepsize", "itype":"float", "default":0.05 },
+							{ "arg":"iterations", "itype":"int", "default":10 },
+							{ "arg":"random_start", "itype":"bool", "default":false },
+							{ "arg":"return_early", "itype":"bool", "default":true }
+						]
+					},
+					"L1BasicIterativeAttack": {
+						"name": "L1 basic iterative attack",
+						"package": "adv.attacks.L1BasicIterativeAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"binary_search", "itype":"bool", "default":true },
+							{ "arg":"epsilon", "itype":"float", "default":0.3 },
+							{ "arg":"stepsize", "itype":"float", "default":0.05 },
+							{ "arg":"iterations", "itype":"int", "default":10 },
+							{ "arg":"random_start", "itype":"bool", "default":false },
+							{ "arg":"return_early", "itype":"bool", "default":true }
+						]
+					},
+					"L2BasicIterativeAttack": {
+						"name": "L2 basic iterative attack",
+						"package": "adv.attacks.L2BasicIterativeAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"binary_search", "itype":"bool", "default":true },
+							{ "arg":"epsilon", "itype":"float", "default":0.3 },
+							{ "arg":"stepsize", "itype":"float", "default":0.05 },
+							{ "arg":"iterations", "itype":"int", "default":10 },
+							{ "arg":"random_start", "itype":"bool", "default":false },
+							{ "arg":"return_early", "itype":"bool", "default":true }
+						]
+					},
+					"ProjectedGradientDescentAttack": {
+						"name": "Projected gradient descent attack",
+						"package": "adv.attacks.ProjectedGradientDescentAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"binary_search", "itype":"bool", "default":true },
+							{ "arg":"epsilon", "itype":"float", "default":0.3 },
+							{ "arg":"stepsize", "itype":"float", "default":0.05 },
+							{ "arg":"iterations", "itype":"int", "default":10 },
+							{ "arg":"random_start", "itype":"bool", "default":false },
+							{ "arg":"return_early", "itype":"bool", "default":true }
+						]
+					},
+					"MomentumIterativeAttack": {
+						"name": "Momentum iterative attack",
+						"package": "adv.attacks.MomentumIterativeAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"binary_search", "itype":"bool", "default":true },
+							{ "arg":"epsilon", "itype":"float", "default":0.3 },
+							{ "arg":"stepsize", "itype":"float", "default":0.05 },
+							{ "arg":"iterations", "itype":"int", "default":10 },
+							{ "arg":"decay_factor", "itype":"float", "default":1.0 },
+							{ "arg":"random_start", "itype":"bool", "default":false },
+							{ "arg":"return_early", "itype":"bool", "default":true }
+						]
+					},
+					"DeepFoolAttack": {
+						"name": "DeepFool attack",
+						"package": "adv.attacks.DeepFoolAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"steps", "itype":"int", "default":100 },
+							{ "arg":"subsample", "itype":"int", "default":10 }
+						]
+					},
+					"DeepFoolL2Attack": {
+						"name": "DeepFool L2 attack",
+						"package": "adv.attacks.DeepFoolL2Attack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"steps", "itype":"int", "default":100 },
+							{ "arg":"subsample", "itype":"int", "default":10 }
+						]
+					},
+					"DeepFoolLinfAttack": {
+						"name": "DeepFool Linf attack",
+						"package": "adv.attacks.DeepFoolLinfinityAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"steps", "itype":"int", "default":100 },
+							{ "arg":"subsample", "itype":"int", "default":10 }
+						]
+					},
+					"NewtonFoolAttack": {
+						"name": "NewtonFool attack",
+						"package": "adv.attacks.NewtonFoolAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"max_iter", "itype":"int", "default":100 },
+							{ "arg":"eta", "itype":"float", "default":0.01 }
+						]
+					},
+					"ADefAttack": {
+						"name": "ADef attack",
+						"package": "adv.attacks.ADefAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"max_iter", "itype":"int+", "default":100 },
+							{ "arg":"max_norm", "itype":"float", "default":null },
+							{ "arg":"smooth", "itype":"float0+", "default":0 },
+							{ "arg":"subsample", "itype":"int+", "default":10 }
+						]
+					},
+					"SLSQPAttack": {
+						"name": "SLSQP attack",
+						"package": "adv.attacks.SLSQPAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true }
+						]
+					},
+					"SaliencyMapAttack": {
+						"name": "Saliency map attack",
+						"package": "adv.attacks.SaliencyMapAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"max_iter", "itype":"int", "default":2000 },
+							{ "arg":"num_random_targets", "itype":"int", "default":0 },
+							{ "arg":"fast", "itype":"bool", "default":true },
+							{ "arg":"theta", "itype":"bool", "default":0.1 },
+							{ "arg":"max_perturbations_per_pixel", "itype":"int", "default":7 }
+						]
+					},
+					"IterativeGradientAttack": {
+						"name": "Iterative gradient attack",
+						"package": "adv.attacks.IterativeGradientAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 },
+							{ "arg":"max_epsilon", "itype":"float", "default":1 },
+							{ "arg":"steps", "itype":"int", "default":10 }
+						]
+					},
+					"IterativeGradientSignAttack": {
+						"name": "Iterative gradient sign attack",
+						"package": "adv.attacks.IterativeGradientSignAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 },
+							{ "arg":"max_epsilon", "itype":"float", "default":1 },
+							{ "arg":"steps", "itype":"int", "default":10 }
+						]
+					},
+					"CarliniWagnerL2Attack": {
+						"name": "Carlini-Wagner L2 attack",
+						"package": "adv.attacks.CarliniWagnerL2Attack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"binary_search_steps", "itype":"int", "default":5 },
+							{ "arg":"max_iterations", "itype":"int", "default":1000 },
+							{ "arg":"confidence", "itype":"float", "default":0 },
+							{ "arg":"learning_rate", "itype":"float", "default":0.005 },
+							{ "arg":"initial_const", "itype":"float", "default":0.01 },
+							{ "arg":"abort_early", "itype":"bool", "default":true }
+						]
+					}
+				},
+				
+				"ScoreBased": {
+					"SinglePixelAttack": {
+						"name": "Single pixel attack",
+						"package": "adv.attacks.SinglePixelAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"max_pixels", "itype":"int", "default":1000 }
+						]
+					},
+					"LocalSearchAttack": {
+						"name": "Local search attack",
+						"package": "adv.attacks.LocalSearchAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"r", "name":"r", "itype":"float", "default":1.5 },
+							{ "arg":"p", "name":"p", "itype":"float", "default":10.0 },
+							{ "arg":"d", "name":"d", "itype":"int", "default":5 },
+							{ "arg":"t", "name":"t", "itype":"int", "default":5 },
+							{ "arg":"R", "name":"R", "itype":"int", "default":150 }
+						]
+					}
+				},
+				
+				"DecisionBased": {
+					"BoundaryAttack": {
+						"name": "Boundary attack",
+						"package": "adv.attacks.BoundaryAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"iterations", "itype":"int", "default":5000 },
+							{ "arg":"max_directions", "itype":"int", "default":25 },
+							{ "arg":"starting_point", "itype":"nosupport" },
+							{ "arg":"initialization_attack", "itype":"nosupport" },
+							{ "arg":"log_every_n_steps", "itype":"int", "default":1 },
+							{ "arg":"spherical_step", "itype":"float", "default":0.01 },
+							{ "arg":"source_step", "itype":"float", "default":0.01 },
+							{ "arg":"step_adaptation", "itype":"float", "default":1.5 },
+							{ "arg":"batch_size", "itype":"int", "default":1 },
+							{ "arg":"tune_batch_size", "itype":"bool", "default":true },
+							{ "arg":"threaded_rnd", "itype":"bool", "default":true },
+							{ "arg":"threaded_gen", "itype":"bool", "default":true },
+							{ "arg":"alternative_generator", "itype":"bool", "default":false },
+							{ "arg":"verbose", "itype":"bool", "default":false }
+						]
+					},
+					"SpatialAttack": {
+						"name": "Spatial attack",
+						"package": "adv.attacks.SpatialAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"do_rotations", "itype":"bool", "default":true },
+							{ "arg":"do_translations", "itype":"bool", "default":true },
+							{ "arg":"x_shift_limits", "itype":"int", "default":5 },
+							{ "arg":"y_shift_limits", "itype":"int", "default":5 },
+							{ "arg":"angular_limits", "itype":"int", "default":5 },
+							{ "arg":"granularity", "itype":"int", "default":10 },
+							{ "arg":"random_sampling", "itype":"bool", "default":false },
+							{ "arg":"abort_early", "itype":"bool", "default":true }
+						]
+					},
+					"PointwiseAttack": {
+						"name": "Pointwise attack",
+						"package": "adv.attacks.PointwiseAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"starting_point", "itype":"nosupport" },
+							{ "arg":"initialization_attack", "itype":"nosupport" }
+						]
+					},
+					"GaussianBlurAttack": {
+						"name": "Gaussian blur attack",
+						"package": "adv.attacks.GaussianBlurAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 }
+						]
+					},
+					"ContrastReductionAttack": {
+						"name": "Contrast reduction attack",
+						"package": "adv.attacks.ContrastReductionAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 }
+						]
+					},
+					"AdditiveUniformNoiseAttack": {
+						"name": "Additive uniform noise attack",
+						"package": "adv.attacks.AdditiveUniformNoiseAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 }
+						]
+					},
+					"AdditiveGaussianNoiseAttack": {
+						"name": "Additive gaussian noise attack",
+						"package": "adv.attacks.AdditiveGaussianNoiseAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 }
+						]
+					},
+					"SaltAndPepperNoiseAttack": {
+						"name": "Salt and pepper noise attack",
+						"package": "adv.attacks.SaltAndPepperNoiseAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 },
+							{ "arg":"repetitions", "itype":"int", "default":10 }
+						]
+					},
+					"BlendedUniformNoiseAttack": {
+						"name": "Blended uniform noise attack",
+						"package": "adv.attacks.BlendedUniformNoiseAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"epsilons", "itype":"types.arg.utils.epsilon", "conns":-1 },
+							{ "arg":"max_directions", "itype":"int", "default":1000 }
+						]
+					}
+				},
+					
+				"Other": {
+					"BinarizationRefinementAttack": {
+						"name": "Binarization refinement attack",
+						"package": "adv.attacks.BinarizationRefinementAttack",
+						"category": "types.node.attack",
+						"itype": ["ImageBatch"],
+						"otype": "ImageBatch",
+						"conns": -1,
+						"args": [
+							{ "arg":"configuration", "itype":"Configuration", "conns":1, "required":true },
+							{ "arg":"starting_point", "itype":"nosupport" },
+							{ "arg":"threshold", "itype":"float", "default":null },
+							{ "arg":"included_in", "itype":"string", "default":"upper" }
+						]
+					}
+				}
+				
+			},
+			
+			
+			"Criteria": {
+				"Misclassification": {
+					"package": "foolbox.criteria.Misclassification",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Criteria",
+					"args": []
+				},
+				"ConfidentMisclassification": {
+					"name": "Confident misclassification",
+					"package": "foolbox.criteria.ConfidentMisclassification",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Criteria",
+					"args": [
+						{ "arg":"p", "itype":"float01", "required":true }
+					]
+				},
+				"TopKMisclassification": {
+					"name": "Top-K misclassification",
+					"package": "foolbox.criteria.TopKMisclassification",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Criteria",
+					"args": [
+						{ "arg":"k", "itype":"int0+", "required":true }
+					]
+				},
+				"TargetClass": {
+					"name": "Target class",
+					"package": "foolbox.criteria.TargetClass",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Criteria",
+					"args": [
+						{ "arg":"target_class", "itype":"int0+", "required":true }
+					]
+				},
+				"OriginalClassProbability": {
+					"name": "Original class probability",
+					"package": "foolbox.criteria.OriginalClassProbability",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Criteria",
+					"args": [
+						{ "arg":"p", "itype":"float01", "required":true }
+					]
+				},
+				"TargetClassProbability": {
+					"name": "Target class probability",
+					"package": "foolbox.criteria.TargetClassProbability",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Criteria",
+					"args": [
+						{ "arg":"target_class", "itype":"int0+", "required":true },
+						{ "arg":"p", "itype":"float01", "required":true }
+					]
+				}
+			},
+			
+			
+			"Distances": {
+				"MeanSquaredDistance": {
+					"name": "Mean squared distance",
+					"package": "foolbox.distances.MeanSquaredDistance",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Distance",
+					"instance": false,
+					"args": []
+				},
+				"MeanAbsoluteDistance": {
+					"name": "Mean absolute distance",
+					"package": "foolbox.distances.MeanAbsoluteDistance",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Distance",
+					"instance": false,
+					"args": []
+				},
+				"Linfinity": {
+					"name": "Linfinity",
+					"package": "foolbox.distances.Linfinity",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Distance",
+					"instance": false,
+					"args": []
+				},
+				"L0": {
+					"name": "L0",
+					"package": "foolbox.distances.L0",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "Distance",
+					"instance": false,
+					"args": []
+				}
+			},
+			
+			
+			"Utils": {
+				"bound": {
+					"package": "adv.utils.bound",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "types.arg.utils.bound",
+					"args": [
+						{ "arg":"lower", "itype":"float", "default":0.0, "required":true },
+						{ "arg":"upper", "itype":"float", "default":1.0, "required":true }
+					]
+				},
+				"epsilon": {
+					"package": "adv.utils.epsilon",
+					"category": "types.node.config",
+					"itype": "_",
+					"otype": "types.arg.utils.epsilon",
+					"args": [
+						{ "arg":"epsilon", "itype":"float", "default":0.0, "required":true }
+					]
+				}
+			}
+			
+		}
+		
+		
+  }
+}

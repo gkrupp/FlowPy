@@ -1,0 +1,156 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline-width: 0;
+}
+:root {
+	font-family: sans-serif;
+	font-size: 14px;
+	background: #eeeeee;
+}
+
+
+#header {
+	padding: 0 8px;
+	width: 100%;
+	height: 56px;
+	background-color: #FFE082;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#header.active {
+	background-color: #ffc107;
+}
+#viewport {
+	height: 100%;
+	padding-top: 56px;
+}
+#aside {
+	border-right: 1px solid #cccccc;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#node_list {
+	width: 100%;
+}
+#node_list ul {
+	padding-left: 8px;
+}
+#node_list li {
+	padding: 6px 4px;
+	border-radius: 2px;
+}
+#node_list li.node_list_package {
+	font-weight: 600;
+}
+#node_list li.node_list_element {
+	font-weight: 400;
+	cursor: pointer;
+}
+#node_list li:hover {
+	background-color: rgba(0,0,0,0.05);
+}
+#main {
+	position: relative;
+}
+#argtable {
+	padding: 4px;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background-color: #ffffff;
+	display: none;
+	z-index: 800;
+}
+#console {
+	top: 56px;
+	right: 0;
+	bottom: 0;
+	background-color: #ffffff;
+	z-index: 900;
+	font-family: monospace;
+}
+
+
+
+
+.aside-left {
+	width: 30%;
+	max-width: 250px;
+}
+.aside-right {
+	width: 50%;
+	max-width: 500px;
+}
+
+
+.iconbtn {
+	margin: 4px;
+	padding: 8px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+}
+.iconbtn:not(:disabled):focus {
+	background-color: rgba(255,255,255,.1);
+}
+.iconbtn:not(:disabled):hover {
+	background-color: rgba(255,255,255,.2);
+}
+.iconbtn:not(:disabled):active {
+	background-color: rgba(255,255,255,.3);
+	border: 1px solid #ffffff;
+}
+.iconbtn:disabled {
+	color: #888888;
+}
+
+
+#argtable label {
+	font-weight: 600;
+	display: block;
+	cursor: pointer;
+}
+
+
+.tab-header {
+	line-height: 46px;
+	text-align: center;
+	border-bottom: 1px solid #eeeeee;
+}
+.tab-option {
+	display: none;
+}
+.tab-header > label {
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	cursor: pointer;
+}
+.tab-header > .tab-option:not(:checked) + label {
+	border-bottom-color: #eeeeee !important;
+}
+.tab-header > input:checked + label {
+	background-color: #f6f6f6f6;
+}
+.tab-header > label:not(:last-child) {
+	border-right: 1px solid #eeeeee !important;
+}
+.tab-content {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	word-wrap: break-word;
+}
+#console-out, #console-err {
+	padding: 4px 6px;
+}
+
+.header-input {
+	border: none;
+	background: transparent;
+	font-size: 16px;
+	color: #000000;
+}
