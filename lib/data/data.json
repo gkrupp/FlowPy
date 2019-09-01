@@ -4,8 +4,10 @@
 			"input": { "fill": "#FFE0B2" },
 			"output": { "fill": "#E1BEE7" },
 			"data": { "fill": "#BBDEFB" },
+			"Layer": { "fill": "#C8E6C9" },
 			"config": { "fill": "#C8E6C9" },
-			"attack": { "fill": "#FFCDD2" }
+			"attack": { "fill": "#FFCDD2" },
+			"execute": { "fill": "#FFCDD2" }
 		},
 		"arg": {
 			"utils": {
@@ -20,6 +22,385 @@
   "nodes": {
 		
 		"Keras": {
+		
+			"Dataset": {
+			
+				"NPZ_file": {
+					"name": "NPZ File",
+					"package": "numpy.load",
+					"category": "types.node.data",
+					"itype": "_",
+					"otype": "DatasetFile",
+					"copy": false,
+					"conns": 0,
+					"args": [
+						{ "arg": "path", "itype": "string", "required": true }
+					]
+				},
+				"Dataset": {
+					"name": "NPZ Dataset",
+					"package": "kw.dataset.dataset",
+					"category": "types.node.data",
+					"itype": "DatasetFile",
+					"otype": "Dataset",
+					"copy": false,
+					"conns": 1,
+					"args": [
+						{ "arg": "train", "itype": "string", "default": "x_train", "required": true },
+						{ "arg": "test", "itype": "string", "default": null }
+					]
+				},
+				"to_categorical": {
+					"name": "to_categorical",
+					"package": "kw.dataset.to_categorical",
+					"category": "types.node.data",
+					"itype": "Dataset",
+					"otype": "Dataset",
+					"copy": false,
+					"conns": 1,
+					"args": [
+						{ "arg": "num_classes", "itype": "int0+", "default": null },
+						{ "arg": "dtype", "itype": "string", "default": "float32" }
+					]
+				}
+			
+			},
+			
+			"Model": {
+				
+				"Input": {
+					"name": "Input",
+					"package": "kw.models.Input",
+					"category": "types.node.input",
+					"itype": "Dataset",
+					"otype": "Layer",
+					"copy": false,
+					"conns": 1,
+					"args": [
+						{ "arg": "shape", "itype": "shape", "required": true }, 
+						{ "arg": "batch_shape", "itype": "shape" }, 
+						{ "arg": "name", "itype": "string", "default": null }, 
+						{ "arg": "dtype", "itype": "nosupport", "default": null }, 
+						{ "arg": "sparse", "itype": "bool", "default": false }, 
+						{ "arg": "tensor", "itype": "nosupport", "default": null }
+					]
+				},
+				"Output": {
+					"name": "Output",
+					"package": "kw.models.Output",
+					"category": "types.node.output",
+					"itype": "Layer",
+					"otype": "Output",
+					"copy": false,
+					"conns": 1,
+					"args": [
+						{ "arg": "y", "itype": "Dataset", "conns": 1 }
+					]
+				},
+				"Model": {
+					"name": "Model",
+					"package": "kw.models.Model",
+					"category": "types.node.config",
+					"itype": "Output",
+					"otype": "Model",
+					"copy": false,
+					"conns": -1,
+					"args": [
+						{ "arg": "optimizer", "itype": "Optimizer", "conns": 1, "required": true },
+						{ "arg": "summary", "itype": "bool", "default": false },
+						{ "arg": "loss", "itype": "string", "default": "mse" },
+						{ "arg": "metrics", "itype": "nosupport", "default": null },
+						{ "arg": "loss_weights", "itype": "nosupport", "default": null },
+						{ "arg": "sample_weight_mode", "itype": "string", "default": null },
+						{ "arg": "weighted_metrics", "itype": "nosupport", "default": null },
+						{ "arg": "target_tensors", "itype": "nosupport", "default": null }
+					]
+				},
+				"Fit": {
+					"name": "Fit",
+					"package": "kw.models.fit",
+					"category": "types.node.execute",
+					"itype": "Model",
+					"otype": "History",
+					"copy": false,
+					"conns": 1,
+					"args": [
+						{ "arg": "batch_size", "itype": "int", "default": null },
+						{ "arg": "epochs", "itype": "int", "default": 1 },
+						{ "arg": "verbose", "itype": "int", "default": 1 },
+						{ "arg": "callbacks", "itype": "Callback", "conns": -1 },
+						{ "arg": "validation_split", "itype": "float01", "default": 0.0 },
+						{ "arg": "shuffle", "itype": "bool", "default": true },
+						{ "arg": "class_weight", "itype": "nosupport", "default": null },
+						{ "arg": "sample_weight", "itype": "nosupport", "default": null },
+						{ "arg": "initial_epoch", "itype": "int", "default": 0 },
+						{ "arg": "steps_per_epoch", "itype": "int", "default": null },
+						{ "arg": "validation_steps", "itype": "int", "default": null },
+						{ "arg": "validation_freq", "itype": "int", "default": 1 }
+					]
+				},
+				
+				"Optimizers": {
+					"Adadelta": {
+						"name": "Adadelta",
+						"package": "keras.optimizers.Adadelta",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 1.0 }, 
+							{ "arg": "rho", "itype": "float", "default": 0.95 }, 
+							{ "arg": "epsilon", "itype": "float", "default": null }, 
+							{ "arg": "decay", "itype": "float", "default": 0.0 }
+						]
+					},
+					"Adagrad": {
+						"name": "Adagrad",
+						"package": "keras.optimizers.Adagrad",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 0.01 }, 
+							{ "arg": "epsilon", "itype": "float", "default": null }, 
+							{ "arg": "decay", "itype": "float", "default": 0.0 }
+						]
+					},
+					"Adam": {
+						"name": "Adam",
+						"package": "keras.optimizers.Adam",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 0.001 }, 
+							{ "arg": "beta_1", "itype": "float", "default": 0.9 }, 
+							{ "arg": "beta_2", "itype": "float", "default": 0.999 }, 
+							{ "arg": "epsilon", "itype": "float", "default": null }, 
+							{ "arg": "decay", "itype": "float", "default": 0.0 }, 
+							{ "arg": "amsgrad", "itype": "bool", "default": false }
+						]
+					},
+					"Adamax": {
+						"name": "Adamax",
+						"package": "keras.optimizers.Adamax",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 0.002 }, 
+							{ "arg": "beta_1", "itype": "float", "default": 0.9 }, 
+							{ "arg": "beta_2", "itype": "float", "default": 0.999 }, 
+							{ "arg": "epsilon", "itype": "float", "default": null }, 
+							{ "arg": "decay", "itype": "float", "default": 0.0 }
+						]
+					},
+					"Nadam": {
+						"name": "Nadam",
+						"package": "keras.optimizers.Nadam",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 0.002 }, 
+							{ "arg": "beta_1", "itype": "float", "default": 0.9 }, 
+							{ "arg": "beta_2", "itype": "float", "default": 0.999 }, 
+							{ "arg": "epsilon", "itype": "float", "default": null }, 
+							{ "arg": "schedule_decay", "itype": "float", "default": 0.004 }
+						]
+					},
+					"RMSprop": {
+						"name": "RMSprop",
+						"package": "keras.optimizers.RMSprop",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 0.001 }, 
+							{ "arg": "rho", "itype": "float", "default": 0.9 }, 
+							{ "arg": "epsilon", "itype": "float", "default": null }, 
+							{ "arg": "decay", "itype": "float", "default": 0.0 }
+						]
+					},
+					"SGD": {
+						"name": "SGD",
+						"package": "keras.optimizers.SGD",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Optimizer",
+						"conns": 0,
+						"copy": false,
+						"args": [
+							{ "arg": "lr", "itype": "float", "default": 0.01 }, 
+							{ "arg": "momentum", "itype": "float", "default": 0.0 }, 
+							{ "arg": "decay", "itype": "float", "default": 0.0 }, 
+							{ "arg": "nesterov", "itype": "bool", "default": false }
+						]
+					}
+				},
+				
+				"Callbacks": {
+					"CSVLogger": {
+						"name": "CSVLogger",
+						"package": "keras.callbacks.CSVLogger",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "filename", "itype": "string", "required": true }, 
+							{ "arg": "separator", "itype": "string", "default": "," }, 
+							{ "arg": "append", "itype": "bool", "default": false }
+						]
+					},
+					"EarlyStopping": {
+						"name": "EarlyStopping",
+						"package": "keras.callbacks.EarlyStopping",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "monitor", "itype": "string", "default": "val_loss" }, 
+							{ "arg": "min_delta", "itype": "float", "default": 0 }, 
+							{ "arg": "patience", "itype": "float", "default": 0 }, 
+							{ "arg": "verbose", "itype": "float", "default": 0 }, 
+							{ "arg": "mode", "itype": "string", "default": "auto" }, 
+							{ "arg": "baseline", "itype": "float", "default": null }, 
+							{ "arg": "restore_best_weights", "itype": "bool", "default": false }
+						]
+					},
+					"ModelCheckpoint": {
+						"name": "ModelCheckpoint",
+						"package": "keras.callbacks.ModelCheckpoint",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "filepath", "itype": "string", "required": true }, 
+							{ "arg": "monitor", "itype": "string", "default": "val_loss" }, 
+							{ "arg": "verbose", "itype": "int", "default": 0 }, 
+							{ "arg": "save_best_only", "itype": "bool", "default": false }, 
+							{ "arg": "save_weights_only", "itype": "bool", "default": false }, 
+							{ "arg": "mode", "itype": "string", "default": "auto" }, 
+							{ "arg": "period", "itype": "int", "default": 1 }
+						]
+					},
+					"Progbar": {
+						"name": "Progbar",
+						"package": "keras.callbacks.Progbar",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "target", "itype": "string", "required": true }, 
+							{ "arg": "width", "itype": "float", "default": 30 }, 
+							{ "arg": "verbose", "itype": "int", "default": 1 }, 
+							{ "arg": "interval", "itype": "float", "default": 0.05 }, 
+							{ "arg": "stateful_metrics", "itype": "nosupport", "default": null }
+						]
+					},
+					"ProgbarLogger": {
+						"name": "ProgbarLogger",
+						"package": "keras.callbacks.ProgbarLogger",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "count_mode", "itype": "string", "default": "samples" }, 
+							{ "arg": "stateful_metrics", "itype": "nosupport", "default": null }
+						]
+					},
+					"ReduceLROnPlateau": {
+						"name": "ReduceLROnPlateau",
+						"package": "keras.callbacks.ReduceLROnPlateau",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "monitor", "itype": "string", "default": "val_loss" }, 
+							{ "arg": "factor", "itype": "float", "default": 0.1 }, 
+							{ "arg": "patience", "itype": "int", "default": 10 }, 
+							{ "arg": "verbose", "itype": "int", "default": 0 }, 
+							{ "arg": "mode", "itype": "string", "default": "auto" }, 
+							{ "arg": "min_delta", "itype": "float", "default": 0.0001 }, 
+							{ "arg": "cooldown", "itype": "int", "default": 0 }, 
+							{ "arg": "min_lr", "itype": "float", "default": 0 }
+						]
+					},
+					"RemoteMonitor": {
+						"name": "RemoteMonitor",
+						"package": "keras.callbacks.RemoteMonitor",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "root", "itype": "string", "default": "http://localhost:9000" }, 
+							{ "arg": "path", "itype": "string", "default": "/publish/epoch/end/" }, 
+							{ "arg": "field", "itype": "string", "default": "data" }, 
+							{ "arg": "headers", "itype": "nosupport", "default": null }, 
+							{ "arg": "send_as_json", "itype": "bool", "default": false }
+						]
+					},
+					"TensorBoard": {
+						"name": "TensorBoard",
+						"package": "keras.callbacks.TensorBoard",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": [
+							{ "arg": "log_dir", "itype": "string", "default": "./logs" }, 
+							{ "arg": "histogram_freq", "itype": "float", "default": 0 }, 
+							{ "arg": "batch_size", "itype": "float", "default": 32 }, 
+							{ "arg": "write_graph", "itype": "bool", "default": true }, 
+							{ "arg": "write_grads", "itype": "bool", "default": false }, 
+							{ "arg": "write_images", "itype": "bool", "default": false }, 
+							{ "arg": "embeddings_freq", "itype": "float", "default": 0 }, 
+							{ "arg": "embeddings_layer_names", "itype": "nosupport", "default": null }, 
+							{ "arg": "embeddings_metadata", "itype": "nosupport", "default": null }, 
+							{ "arg": "embeddings_data", "itype": "nosupport", "default": null }, 
+							{ "arg": "update_freq", "itype": "string", "default": "epoch" }
+						]
+					},
+					"TerminateOnNaN": {
+						"name": "TerminateOnNaN",
+						"package": "keras.callbacks.TerminateOnNaN",
+						"category": "types.node.config",
+						"itype": "_",
+						"otype": "Callback",
+						"conns": 0,
+						"copy": true,
+						"args": []
+					}
+				}
+			
+			},
 		
 			"Layers": {
 				
@@ -100,23 +481,6 @@
 						"conns": 1,
 						"args": [
 							{ "arg": "data_format", "itype": "string", "default": null }
-						]
-					},
-					"Input": {
-						"name": "Input",
-						"package": "keras.layers.Input",
-						"category": "types.node.Layer",
-						"itype": "Layer",
-						"otype": "Layer",
-						"copy": false,
-						"conns": 0,
-						"args": [
-							{ "arg": "shape", "itype": "shape", "required": true }, 
-							{ "arg": "batch_shape", "itype": "shape" }, 
-							{ "arg": "name", "itype": "string", "default": null }, 
-							{ "arg": "dtype", "itype": "nosupport", "default": null }, 
-							{ "arg": "sparse", "itype": "bool", "default": false }, 
-							{ "arg": "tensor", "itype": "nosupport", "default": null }
 						]
 					},
 					"Masking": {
@@ -1941,6 +2305,19 @@
 				}
 			}
 			
+		},
+		
+		"FlowPy": {
+		
+			"Expander": {
+				"_package": "fpy.fpy.Expander",
+				"category": "types.node.data",
+				"itype": null,
+				"otype": null,
+				"copy": false,
+				"args": []
+			}
+		
 		}
 		
 		

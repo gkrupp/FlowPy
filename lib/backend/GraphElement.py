@@ -58,7 +58,7 @@ class Arg(GraphElementBase):
 				elif 'bool' in typ:
 					return bool(val)
 				elif 'string' in typ:
-					return str(val)
+					return str(val) if val is not None else None
 				elif 'shape' in typ:
 					return Arg.strshape(val)
 			except:
