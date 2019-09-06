@@ -169,7 +169,7 @@ class NNGraph(EngineBase):
 		order = []
 		for key, node in G.nodes.items():
 			if node.getAttr('visited') is None:
-				Topological.DFSorder(G, node, order)
+				NNGraph.DFSorder(G, node, order)
 		order.reverse()
 		return order
 	
@@ -182,14 +182,14 @@ class NNGraph(EngineBase):
 			if state == False:
 				raise Error('This Graph is not a DAG!')
 			elif state is None:
-				Topological.DFSorder(G, node, order)
+				NNGraph.DFSorder(G, node, order)
 		order.append(root.id)
 		root.setAttr('visited', True)
 	
 	
 	def __init__(self, G):
 		super().__init__(G);
-		self.order = Topological.getOrder(G)
+		self.order = NNGraph.getOrder(G)
 	
 	
 	def run(self, clsFallback='module', progress=None):
