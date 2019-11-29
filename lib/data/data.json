@@ -47,7 +47,10 @@
 					"conns": 1,
 					"args": [
 						{ "arg": "train", "itype": "string", "default": "x_train", "required": true },
-						{ "arg": "test", "itype": "string", "default": null }
+						{ "arg": "test", "itype": "string", "default": null },
+						{ "arg":"subtract", "itype":"float", "default":0.0 },
+						{ "arg":"divide", "itype":"float", "default":1.0 },
+						{ "arg":"multiply", "itype":"float", "default":1.0 }
 					]
 				},
 				"to_categorical": {
@@ -1654,7 +1657,7 @@
 						"name": "[Transformation]",
 						"package": "adv.fileop.preprocessing",
 						"category": "types.node.data",
-						"itype": ["ImageBatch"],
+						"itype": "ImageBatch",
 						"otype": "ImageBatch",
 						"conns": -1,
 						"args": [

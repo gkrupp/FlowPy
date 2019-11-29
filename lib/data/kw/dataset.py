@@ -3,11 +3,13 @@ import keras.utils as KUtils
 
 
 
-def dataset(dataset, train, test=None):
+def dataset(dataset, train, test=None, subtract=0.0, divide=1.0, multiply=1.0):
 	if test is not None:
-		return (dataset[train], dataset[test])
+		return (
+			(dataset[train]-subtract)/divide*multiply,
+			(dataset[test]-subtract)/divide*multiply)
 	else:
-		return (dataset[train], None)
+		return ((dataset[train]-subtract)/divide*multiply, None)
 
 def to_categorical(data, **kwargs):
 	if isinstance(data, tuple) or isinstance(data, list):
